@@ -90,12 +90,29 @@ void addToListMain() {
     addToList(item, toFirst, toLast);
 }
 
+
+void removeNegative(){
+    //remove first
+
+    while(first != NULL && first->value<0){
+        first = first->next;
+    }
+
+    PNode item = first;
+
+    while (item != NULL){
+        if(item->next != NULL && item->next->value<0){
+            item->next =item->next->next;
+        }else{
+            item = item->next;
+        }
+    }
+}
+
 int main() {
     initList();
     printList();
-
-
-    addToListMain();
+    removeNegative();
     printList();
     return 0;
 }
