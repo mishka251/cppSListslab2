@@ -54,7 +54,7 @@ void addToList(List *item, int toBegin, int toLast) { // получает ука
     newLast->prev = lastItem; // элемент перед новым последним это последний
 
     List *firstItem = item; // созд указ на первый элемент списка
-    while (firstItem->prev != nullptr) // пока у первого элемента предшествующий  не рввен...
+    while (firstItem->prev != nullptr){ // пока у первого элемента предшествующий  не рввен...
         firstItem = firstItem->prev; // первый элемент равен предшествующему
     }
     firstItem->prev = newFirst; // элемент перед первым это новый первый
@@ -70,13 +70,7 @@ void addToList() { //
     std::cout << "to last=";
     std::cin >> toLast;
 
-    int elementIndex;// вводим индекс элемента который будет отправляться в функцию
-    std::cout << "start index=";
-    std::cin >> elementIndex;
     List *item = first; // созаем указ на элемент с заданным индексом
-    for (int i = 0; i < elementIndex; ++i) {
-        item = item->next; // находим этот э6лемент с заданным индексом
-    }
 
     addToList(item, toFirst, toLast);
 }
@@ -84,8 +78,6 @@ void addToList() { //
 int main() {
     initList();
     printList();
-
-
     addToList();
     printList();
     return 0;
